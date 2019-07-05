@@ -5,6 +5,8 @@ import { ModalController } from '@ionic/angular';
 import { ChatComponent } from '../componentes/chat/chat.component';
 import { ActionSheetController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -21,8 +23,19 @@ export class HomePage implements OnInit {
     public chatService: ChatsService,
     private modal: ModalController,
     public activateRoute: ActivatedRoute,
+    public alertCtrl: AlertController,
+    public toastController: ToastController,
     public actionSheetController: ActionSheetController
   ) { }
+
+  async mostrarMsg(mensaje: string) {
+    const evento = await this.toastController.create({
+      message: mensaje,
+      duration: 1800,
+      position: 'middle'
+    });
+    evento.present();
+  }
 
 
   onLogout() {
@@ -58,31 +71,12 @@ export class HomePage implements OnInit {
           console.log('desconectándose');
           this.onLogout();
         }
-
       }, {
-        text: 'Delete',
-        role: 'destructive',
-        icon: 'trash',
+        text: 'Crear Salón',
+        icon: 'chatbubbles',
         handler: () => {
-          console.log('Delete clicked');
-        }
-      }, {
-        text: 'Share',
-        icon: 'share',
-        handler: () => {
-          console.log('Share clicked');
-        }
-      }, {
-        text: 'Play (open modal)',
-        icon: 'arrow-dropright-circle',
-        handler: () => {
-          console.log('Play clicked');
-        }
-      }, {
-        text: 'Favorite',
-        icon: 'heart',
-        handler: () => {
-          console.log('Favorite clicked');
+          console.log('Crear Salón clicked');
+          this.crearSalon();
         }
       }, {
         text: 'Cancel',
@@ -94,6 +88,41 @@ export class HomePage implements OnInit {
       }]
     });
     await actionSheet.present();
+  }
+
+  async crearSalon() {
+    const alerta = await this.alertCtrl.create({
+      header: 'Información requerida',
+      inputs: [
+        {
+          name: 'txtNombre',
+          type: 'text',
+          placeholder: 'Nombre de la sala'
+        },
+        {
+          name: 'txtDescripcion',
+          type: 'text',
+          placeholder: 'Descripción'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Aceptar',
+          handler: (dato) => {
+            console.log(dato.txtNombre);
+            console.log(dato.txtDescripcion);
+            this.chatService.createSalonToFirebase(dato.txtNombre, dato.txtDescripcion)
+          }
+        },
+        {
+          text: 'Cancelar',
+          handler: (dato) => {
+            console.log('Construcción de salón cancelada');
+          }
+        }
+      ]
+    });
+    alerta.present();
   }
 
 }

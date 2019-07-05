@@ -6,6 +6,7 @@ import { NologinGuard } from './guards/nologin.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home/:email', loadChildren: './home/home.module#HomePageModule', canActivate : [AuthGuard] },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate : [AuthGuard] },
   { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule', canActivate : [NologinGuard] },
   { path: 'registro', loadChildren: './componentes/registro/registro.module#RegistroPageModule', canActivate: [NologinGuard] },
 ];
@@ -16,4 +17,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }//
+export class AppRoutingModule { }
