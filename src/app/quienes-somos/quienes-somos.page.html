@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="showMenu()">
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-title text-center>Acerca de Nosotros</ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/icon/nosotros2.jpg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle text-center>
+        <h3>Equipo:</h3>
+      </ion-card-subtitle>
+      <ion-card-title text-center>
+        <ion-icon name="logo-angular"></ion-icon>
+        PappAS
+        <ion-icon name="logo-android"></ion-icon>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label text-center>
+              <h2><strong>Ingeniería en Informática</strong></h2>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>
+              <h2>Alumnos:</h2>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>- Oscar Labra</p>
+            <p>- César Muñoz</p>
+            <p>- Patricio Díaz</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>
+              <h2>Profesor:</h2>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>Germán Riveros</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

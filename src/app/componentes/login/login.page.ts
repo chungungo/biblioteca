@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../servicios/auth.service";
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,13 @@ export class LoginPage implements OnInit {
   constructor(
     private authService: AuthService,
     public router: Router,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    private menu: MenuController
     ) { }
+
+    showMenu(){
+      this.menu.toggle();
+    }
 
   ngOnInit() {
     this.password = "";

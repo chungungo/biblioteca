@@ -3,6 +3,7 @@ import { AuthService } from '../../servicios/auth.service';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class RegistroPage implements OnInit {
     private auth: AuthService,
     public alertCtrl: AlertController,
     public toastController: ToastController,
-    private router: Router
+    private router: Router,
+    private menu: MenuController
   ) { }
 
   async mostrarMsg(mensaje) {
@@ -31,6 +33,10 @@ export class RegistroPage implements OnInit {
       position: 'middle'
     });
     evento.present();
+  }
+
+  showMenu(){
+    this.menu.toggle();
   }
 
   ngOnInit() {

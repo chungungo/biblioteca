@@ -6,6 +6,8 @@ import { ActionSheetController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
+//---------------clase del salón de chat actual.-------------------
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -28,6 +30,7 @@ export class ChatComponent implements OnInit {
     public alertCtrl: AlertController,
     private chatService: ChatsService) { }
 
+  //método que carga al inicio.
   ngOnInit() {
     this.chatService.getChatRoom(this.chat.id).subscribe(room => {
       console.log(room);
@@ -36,10 +39,12 @@ export class ChatComponent implements OnInit {
     this.chat = this.navparams.get('chat');
   }
 
+  //método para cerrar el chat actual.
   closeChat() {
     this.modal.dismiss();
   }
 
+  //método para grabar los chat de los salones en la bb.dd.
   sendMessage() {
     const mensaje: message = {
       content: this.msg,
@@ -51,6 +56,7 @@ export class ChatComponent implements OnInit {
     this.msg = "";
   }
 
+  //método para mostrar mensajes
   async mostrarMsg(mensaje) {
     const evento = await this.toastController.create({
       message: mensaje,
@@ -60,6 +66,7 @@ export class ChatComponent implements OnInit {
     evento.present();
   }
 
+  //método para consultar y vaciar el chat del salón actual
   async consultarVaciarChat(consulta) {
     const alerta = await this.alertCtrl.create({
       header: consulta,
@@ -88,6 +95,7 @@ export class ChatComponent implements OnInit {
     alerta.present();
   }
 
+  //método para consultar y eliminar el salón de chat actual.
   async consultarEliminarSalon(consulta) {
     const alerta = await this.alertCtrl.create({
       header: consulta,
@@ -117,6 +125,7 @@ export class ChatComponent implements OnInit {
     alerta.present();
   }
 
+  //método de menú para desplegar las opciones dentro del salon de chat.
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Opciones',

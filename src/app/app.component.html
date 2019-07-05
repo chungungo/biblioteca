@@ -1,3 +1,22 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-menu side="start" menuId="primerMenu" contentId="principal">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu Principal</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item (click)="irA('quienes-somos')">
+            <ion-icon name="contacts"></ion-icon>
+             Quienes somos</ion-item>
+        <ion-item (click)="irA('home')">
+            <ion-icon name="home"></ion-icon>
+             Home</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="principal"></ion-router-outlet>
 </ion-app>
