@@ -5,8 +5,6 @@
 
 </hr>
 
-
-
 <div align="center">
 <h3>Descripción:</h3> 
 <p>Aplicación de chat libre, con registro de usuarios, montada en Firebase.</p>
