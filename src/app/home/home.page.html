@@ -3,7 +3,7 @@
     <ion-button slot="end" fill="clear" (click)="presentActionSheet()">
       <ion-icon style="color:#fff" name="menu"></ion-icon>
     </ion-button>
-    <ion-title>Chat Pappas</ion-title>
+    <ion-title text-center>Salones</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +15,7 @@
       </ion-avatar>
       <ion-label>
         <h2><strong>{{chat.nombre}}</strong></h2>
-        <p>{{chat.descripcion}}</p>
+        <p><em>{{chat.descripcion}}</em></p>
       </ion-label>
     </ion-item>
   </ion-list>

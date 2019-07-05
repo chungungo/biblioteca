@@ -44,6 +44,7 @@ export class HomePage implements OnInit {
         email: this.email //se pasa el email para ver la procedencia del mensaje.
       }
     }).then((modal) => modal.present())
+
   }
 
   async presentActionSheet() {
@@ -57,6 +58,7 @@ export class HomePage implements OnInit {
           console.log('desconectándose');
           this.onLogout();
         }
+
       }, {
         text: 'Delete',
         role: 'destructive',

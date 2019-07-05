@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 import { message } from '../../models/message';
 import { ChatsService } from '../../servicios/chats.service';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-chat',
@@ -19,6 +20,7 @@ export class ChatComponent implements OnInit {
   constructor(
     private navparams: NavParams,
     private modal: ModalController,
+    public actionSheetController: ActionSheetController,
     private chatService: ChatsService) { }
 
   ngOnInit() {
@@ -43,4 +45,49 @@ export class ChatComponent implements OnInit {
     this.chatService.sendMsgToFirebase(mensaje, this.chat.id);
     this.msg = "";
   }
+
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Opciones',
+      buttons: [
+        {
+          text: 'Delete',
+          role: 'destructive',
+          icon: 'trash',
+          handler: () => {
+            if (this.email == 'ceblae@gmail.com') {
+              this.chatService.deleteMsg(this.chat.id);
+            }
+
+          }
+        }, {
+          text: 'Share',
+          icon: 'share',
+          handler: () => {
+            console.log('Share clicked');
+          }
+        }, {
+          text: 'Play (open modal)',
+          icon: 'arrow-dropright-circle',
+          handler: () => {
+            console.log('Play clicked');
+          }
+        }, {
+          text: 'Favorite',
+          icon: 'heart',
+          handler: () => {
+            console.log('Favorite clicked');
+          }
+        }, {
+          text: 'Cancel',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }]
+    });
+    await actionSheet.present();
+  }
+
 }

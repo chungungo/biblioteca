@@ -3,7 +3,10 @@
     <ion-button slot="start" fill="clear" (click)="closeChat()">
       <ion-icon style="color:#fff; font-size: 25px" name="arrow-round-back"></ion-icon>
     </ion-button>
-    <ion-title>{{chat.name}}</ion-title>
+    <ion-button slot="end" fill="clear" (click)="presentActionSheet()">
+        <ion-icon style="color:#fff" name="menu"></ion-icon>
+      </ion-button>
+    <ion-title>{{chat.nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +14,7 @@
 
   <div *ngIf="room">
     <ion-card *ngFor="let mensaje of room.messages">
-      <ion-card-content><strong>{{mensaje.autor}}:</strong> {{mensaje.content}}</ion-card-content>
+      <ion-card-content><strong>{{mensaje.autor}}:</strong> <em style="color:red">{{mensaje.content}}</em></ion-card-content>
     </ion-card>
   </div>
   
