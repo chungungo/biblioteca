@@ -21,6 +21,18 @@
       <p>Menú Lateral</p>
     <img src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/menu.PNG">
     </div>
+    <div>
+      <p>Listado de salones</p>
+    <img src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/salones.PNG">
+    </div>
+    <div>
+      <p>Dentro del Chat</p>
+    <img src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/salonIndividual.PNG">
+    </div>
+    
+    
+    
+    
     
     
     
