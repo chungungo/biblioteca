@@ -37,6 +37,7 @@ export class AuthService {
         this.db.collection("usuarios").doc(uid).set({
           name: name,
           uid: uid,
+          correo: email,
           date: new Date()
         })
 

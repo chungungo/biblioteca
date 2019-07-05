@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../servicios/auth.service";
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginPage implements OnInit {
 
   constructor(
     private authService: AuthService,
-    public router: Router
+    public router: Router,
+    public navCtrl: NavController
     ) { }
 
   ngOnInit() {
@@ -24,8 +26,8 @@ export class LoginPage implements OnInit {
 
   onSubmitLogin() {
     this.authService.login(this.email, this.password).then(res => {
-      this.router.navigate(['/home']);
-      //this.navController.navigateForward('home');
+      //this.router.navigate(['/home']);
+      this.navCtrl.navigateForward(`/home/${this.email}`);
     }).catch(err => alert('El nombre de usuario o contraseña son incorrectos.'))
   }
 

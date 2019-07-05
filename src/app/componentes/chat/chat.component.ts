@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 import { message } from '../../models/message';
 import { ChatsService } from '../../servicios/chats.service';
-import { text } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-chat',
@@ -15,6 +14,7 @@ export class ChatComponent implements OnInit {
   public messages = [];
   public room: any;
   public msg: string;
+  public email: string;
 
   constructor(
     private navparams: NavParams,
@@ -37,7 +37,8 @@ export class ChatComponent implements OnInit {
     const mensaje: message = {
       content: this.msg,
       type: 'text',
-      date: new Date()
+      date: new Date(),
+      autor: this.email
     }
     this.chatService.sendMsgToFirebase(mensaje, this.chat.id);
     this.msg = "";

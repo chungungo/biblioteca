@@ -4,6 +4,7 @@ import { ChatsService, chat } from '../servicios/chats.service';
 import { ModalController } from '@ionic/angular';
 import { ChatComponent } from '../componentes/chat/chat.component';
 import { ActionSheetController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,13 @@ import { ActionSheetController } from '@ionic/angular';
 export class HomePage implements OnInit {
 
   public chatRooms: any = [];
+  public email: string;
 
   constructor(
     public autService: AuthService,
     public chatService: ChatsService,
     private modal: ModalController,
+    public activateRoute: ActivatedRoute,
     public actionSheetController: ActionSheetController
   ) { }
 
@@ -27,6 +30,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.email = this.activateRoute.snapshot.paramMap.get('email');
     this.chatService.getChatRooms().subscribe(chats => {
       this.chatRooms = chats;
     });
@@ -34,9 +38,10 @@ export class HomePage implements OnInit {
 
   openChat(chat) {
     this.modal.create({
-      component: ChatComponent,
+      component: ChatComponent,//se le pasa la clase.
       componentProps: {
-        chat: chat
+        chat: chat,
+        email: this.email //se pasa el email para ver la procedencia del mensaje.
       }
     }).then((modal) => modal.present())
   }
