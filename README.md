@@ -5,7 +5,7 @@
 </hr>
 
 <div align="center"> 
-<p>Aplicación de chat libre, con registro de usuarios, montada en Firebase.</p>
+<p>Aplicación de chat libre, con registro y autenticación de usuarios, montada en Firebase.</p>
 
 <img src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/icono.ico">
 <p align="center">icono de la app</p>
