@@ -8,10 +8,11 @@
 <p>Aplicación de chat libre, con registro de usuarios, montada en Firebase.</p>
 
 <img src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/icono.ico">
+<p align="center">icono de la app</p>
   </div>
   
   <div>
-  <h2>Imágenes</h2>
+  <h2>Imágenes de la app</h2>
     <div>
       <p>Inicio de sesión</p>
     <img  src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/inicioSesion.PNG">
