@@ -15,22 +15,22 @@
   <h2>Imágenes de la app</h2>
   <hr>
     <div>
-      <p>Inicio de sesión</p>
+      <h3>Inicio de sesión</h3>
     <img  src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/inicioSesion.PNG">
     </div>
   <hr>
   <div>
-      <p>Menú Lateral</p>
+      <h3>Menú Lateral</h3>
     <img src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/menu.PNG">
     </div>
   <hr>
     <div>
-      <p>Listado de salones</p>
+      <h3>Listado de salones</h3>
     <img src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/salones.PNG">
     </div>
   <hr>
     <div>
-      <p>Dentro del Chat</p>
+      <h3>Dentro del Chat</h3>
     <img src="https://github.com/chungungo/biblioteca/blob/master/src/assets/icon/salonIndividual.PNG">
     </div>
     
